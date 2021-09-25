@@ -11,7 +11,9 @@ final_project_dataset.pkl - Dataset
 
 initial.py - Starter code I initially used; the bulk of figuring out features is in this file (all the plots, etc)
 
-poi_id.py - File to run in order to generate the pkl files and test the algorithm
+poi_id.py - File to run in order to generate the pkl files and test the algorithm, usimg the grader's tester.py and feature_format.py
+
+poi_id(other).py - File that runs internally with included tester.py and feature_format.py files
 
 running_tests.py - Where algorithm testing and tuning took place
 
