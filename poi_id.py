@@ -5,7 +5,7 @@ Created on Fri Sep 24 23:45:03 2021
 @author: Cindy
 """
 
-from feature_format import feature_format, target_feature_split
+from feature_format import featureFormat, target_feature_split
 import pickle
 from tester import dump_classifier_and_data
 import pandas as pd
@@ -66,7 +66,7 @@ data_dict = pdTestPSB.T.to_dict()
 dataset = data_dict
 
 # Extract features and labels from dataset for local testing
-data = feature_format(dataset, features_list, sort_keys=True)
+data = featureFormat(dataset, features_list, sort_keys=True)
 labels, features = target_feature_split(data)
 
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.25, random_state=12)
