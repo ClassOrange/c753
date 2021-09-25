@@ -1,0 +1,6 @@
+https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html
+https://pythonguides.com/python-sort-numpy-array/#:~:text=%20NumPy%20sort%20%28%29%20function%20%201%20The,returns%20a%20sorted%20copy%20of%20the...%20More%20
+https://github.com/tox-dev/tox/issues/426#:~:text=The%20issue%20is%20within%20the%20TextIOWrapper%20%28%20stdout,the%20bytes%2C%20not%20the%20string%20you%20just%20submitted.
+https://stackoverflow.com/questions/53899066/what-could-be-the-reason-for-typeerror-stratifiedshufflesplit-object-is-not
+https://github.com/oforero/ud120-projects
