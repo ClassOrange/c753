@@ -48,7 +48,17 @@ Accuracy & importances output:
 `accuracy: 0.933333`
 `array([0.34789239 0.27570628 0.37640133])`
                      
-Essentially I added back all my 7 features, lopped off some lowest values, but then I saw the importance of a couple features at 0, so I pared down from there. My accuracy is showing between 0.8 and 1.0 (alternating between them)
+Essentially after a bunch of combinations I wound up adding back all my 7 features, lopped off some lowest values, but then I saw the importance of a couple features at 0, so I pared down from there. My accuracy is showing between 0.8 and 1.0 (alternating between them)
+
+Manual Methods
+Features | Accuracy | Precision | Recall
+-------- | ---- | ---- | ----
+poi, bonus, total stock value (<2mil), pct shared poi | 0.76475 | 0.53665 | 0.432
+poi, salary, bonus, total stock value, bon_sal, pct email poi (<0.2), pct shared poi | 0.72533 | 0.30714 | 0.516
+poi, total stock value, pct shared poi | 0.81250 | 0.27355 | 0.302
+poi, bonus, pct_shared_poi | 0.72571 | 0.52128 | 0.49
+
+Scaling simply wasn't necessary; neither the Gaussian NB algorithm nor the Decision Tree use calculations that necessitate scaling. To explain a bit with an example when it *would* be helpful, however: I was working with a wine dataset recently and comparing alcohol and sugar content vs a 3rd variable. Both alcohol and sugar fit onto the y axis scaled for sugar, but alcohol only spanned about 1/4 of the axis. In that case, minmax scaling was perfect as I was able to transform both variables to a scale of 0 - 1, which wound up very starkly demonstrating a significant negative correlation.
 
 #### Algorithm Used?
 
@@ -62,6 +72,21 @@ It's difficult to qualify all tuning together, as it's all very specialized; in 
 - Switching the method to 'random' from 'best' brought the quality slightly down
 - min_weight_fraction_leaf set at around 0.045 helps a bit
 - a value of min_impurity_decrease barely helps, but it does help
+
+min samp split | min samp leaf | min wt fraction leaf | min impurity dec | accuracy | precision | recall
+---|---|---|---|---|---|---
+0.1 |  |  |  | 0.75775 | 0.51911 | 0.421
+0.08 |  |  |  | 0.76525 | 0.53895 | 0.422
+0.05 |  |  |  | 0.766 | 0.54 | 0.432
+0.05 | 0.1 |  |  | 0.67025 | 0.05322 | 0.01900
+0.05 |  | 0.1 |  | 0.766 | 0.54 | 0.432
+0.05 |  | 0.05 |  | 0.7745 | 0.56676 | 0.416
+0.05 |  | 0.04 |  | 0.7737 | 0.56552 | 0.41
+0.05 |  | 0.045 |  | 0.77475 | 0.56716 | 0.418
+0.05 |  | 0.045 | 0.1 | n/a | n/a | n/a
+0.05 |  | 0.045 | 0.05 | 0.7465 | 0.48991 | 0.34
+0.05 |  | 0.045 | 0.02 | 0.767 | 0.54282 | 0.431
+0.05 |  | 0.045 | 0.01 | 0.77525 | 0.56834 | 0.42
 
 #### Validation
 
